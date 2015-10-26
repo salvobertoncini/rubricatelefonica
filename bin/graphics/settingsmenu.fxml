@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerImpostazioni">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="800.0">
+         <image>
+            <Image url="@../../../../workspace/RubricaTelefonica/bin/graphics/background.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="back" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icon/ic_arrow_back_white_24dp_2x.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Text fx:id="modprofile" fill="WHITE" layoutX="377.0" layoutY="303.0" onMouseClicked="#modProfile" strokeType="OUTSIDE" strokeWidth="0.0" text="modifica profilo">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Text>
+      <Text fx:id="expaddressbook" fill="WHITE" layoutX="378.0" layoutY="339.0" onMouseClicked="#expAddressBook" strokeType="OUTSIDE" strokeWidth="0.0" text="esporta rubrica">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Text>
+      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="400.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icon/ic_settings_white_24dp_2x.png" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" layoutX="345.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="menu impostazioni">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="382.0" layoutY="456.0" onMouseClicked="#delUser" strokeType="OUTSIDE" strokeWidth="0.0" text="elimina utente">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Text>
+      <Text fx:id="loginerror" fill="WHITE" layoutX="340.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="rubrica esportata con successo" visible="false">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+   </children>
+</Pane>

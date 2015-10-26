@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerRegistrazione">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="800.0">
+         <image>
+            <Image url="@../../../../workspace/RubricaTelefonica/bin/graphics/background.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="back" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icon/ic_arrow_back_white_24dp_2x.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Text fill="WHITE" layoutX="345.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="registrazione">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <TextField fx:id="name" layoutX="90.0" layoutY="190.0" prefHeight="25.0" prefWidth="260.0" promptText="nome" />
+      <TextField fx:id="surname" layoutX="440.0" layoutY="190.0" prefHeight="25.0" prefWidth="260.0" promptText="cognome" />
+      <TextField fx:id="username" layoutX="90.0" layoutY="245.0" prefHeight="25.0" prefWidth="260.0" promptText="username" />
+      <PasswordField fx:id="password" layoutX="440.0" layoutY="245.0" prefHeight="25.0" prefWidth="260.0" promptText="password" />
+      <TextField fx:id="tel" layoutX="90.0" layoutY="300.0" prefHeight="25.0" prefWidth="260.0" promptText="telefono" />
+      <TextField fx:id="email" layoutX="440.0" layoutY="300.0" prefHeight="25.0" prefWidth="260.0" promptText="email" />
+      <Button fx:id="registrationbutton" layoutX="365.0" layoutY="357.0" mnemonicParsing="false" onAction="#regOnDb" text="registra" textFill="#c0392b">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="378.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icon/ic_person_add_white_24dp_2x.png" />
+         </image>
+      </ImageView>
+      <Text fx:id="error" fill="WHITE" layoutX="334.0" layoutY="412.0" strokeType="OUTSIDE" strokeWidth="0.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+   </children>
+</Pane>

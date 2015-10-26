@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerModificaContatto">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="800.0">
+         <image>
+            <Image url="@../../../../workspace/RubricaTelefonica/bin/graphics/background.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="back" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icon/ic_arrow_back_white_24dp_2x.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Text fill="WHITE" layoutX="320.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="modifica contatto">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Text>
+      <TextField fx:id="name" layoutX="90.0" layoutY="190.0" prefHeight="25.0" prefWidth="260.0" promptText="nome" />
+      <TextField fx:id="surname" layoutX="440.0" layoutY="190.0" prefHeight="25.0" prefWidth="260.0" promptText="cognome" />
+      <TextField fx:id="tel" layoutX="90.0" layoutY="245.0" prefHeight="25.0" prefWidth="260.0" promptText="telefono" />
+      <TextField fx:id="tel2" layoutX="440.0" layoutY="245.0" prefHeight="25.0" prefWidth="260.0" promptText="telefono" />
+      <TextField fx:id="email" layoutX="90.0" layoutY="300.0" prefHeight="25.0" prefWidth="260.0" promptText="email" />
+      <TextField fx:id="email2" layoutX="440.0" layoutY="300.0" prefHeight="25.0" prefWidth="260.0" promptText="email" />
+      <TextArea fx:id="note" layoutX="440.0" layoutY="354.0" prefHeight="130.0" prefWidth="260.0" promptText="note..." />
+      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="388.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icon/ic_person_white_24dp_2x.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="413.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icon/ic_mode_edit_black_24dp_2x.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="465.0" layoutY="513.0" onMouseClicked="#delPeopleOnDb" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icon/ic_delete_white_24dp_2x.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="65.0" layoutX="247.0" layoutY="513.0" onMouseClicked="#modPeopleOnDb" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icon/ic_mode_edit_white_24dp_2x.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Text fx:id="error" fill="WHITE" layoutX="297.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" visible="false">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+      <ComboBox fx:id="comboboxgruppi" layoutX="90.0" layoutY="354.0" prefHeight="25.0" prefWidth="260.0" promptText="sposta contatto in..." />
+   </children>
+</Pane>
