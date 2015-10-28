@@ -5,7 +5,12 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
-public class Gruppo implements Serializable{
+public class Gruppo implements Serializable
+{
+	/**
+	 * Classe che contiene i costruttori, i getters e i setters di ogni gruppo di contatti.
+	 * Contiene anche gli estremi di streaming al server.
+	 */
 	private String nome;
 	boolean avviso;
 

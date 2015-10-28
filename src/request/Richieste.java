@@ -9,6 +9,11 @@ import javafx.scene.control.TextField;
 
 public class Richieste implements Serializable
 {
+	/**
+	 * Classe che contiene tutte le richieste che possono essere inviate al server,
+	 * i costruttori, igetters e i setters.
+	 * 
+	 */
 	private String valcombobox, oggettoRicerca, nome, cognome, username, password, telefono, telefono2, email, email2,note,tipoRichiesta;
 	public String getOggettoRicerca() {
 		return oggettoRicerca;

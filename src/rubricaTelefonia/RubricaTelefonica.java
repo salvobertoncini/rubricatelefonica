@@ -11,7 +11,16 @@ import javafx.stage.Stage;
 
 import java.io.*;
 
-public class RubricaTelefonica extends Application{
+public class RubricaTelefonica extends Application
+{
+	
+	/**
+	 * Classe principale del programma. Contiene il void main, che si occupa di inizializzare
+	 * una socket con indirizzo locale 127.0.0.1 e porta 6001, e di invocare il metodo start
+	 * che fa partire la prima scena, quella del login. Inizializza inoltre due variabili
+	 * che si occupano dello streaming DA e VERSO il server.
+	 * 
+	 */
 	
 	public static Socket clientSocket;
 	public static ObjectOutputStream versoServer;

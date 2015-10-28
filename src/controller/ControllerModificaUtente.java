@@ -16,7 +16,17 @@ import javafx.scene.text.Text;
 import request.Richieste;
 import rubricaTelefonia.RubricaTelefonica;
 
-public class ControllerModificaUtente  implements Initializable {
+public class ControllerModificaUtente  implements Initializable 
+{
+	/**
+	 * 
+	 * Classe che contiene le funzioni necessarie a modificare l'account dell'utente loggato.
+	 * Sono presenti tutti i vari elementi che si trovano nell'interfaccia grafica,
+	 * le funzioni back necessaria a tornare alla pagina precedente e
+	 * modOnDb che si occupa di mandare una richiesta al server contenente i campi 
+	 * prelevati dall'interfaccia grafica. 
+	 *
+	 */
 	
 	@FXML
 	TextField name, surname, tel, email, username;

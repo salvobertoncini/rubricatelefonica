@@ -21,7 +21,18 @@ import request.Richieste;
 import rubricaTelefonia.RubricaTelefonica;
 import user.Utente;
 
-public class ControllerVistaPreferiti implements Initializable{
+public class ControllerVistaPreferiti implements Initializable
+{
+	/**
+	 * 
+	 * Classe che contiene le funzioni necessarie alla visualizzazione dei preferiti in rubrica.
+	 * Sono presenti tutti i vari elementi che si trovano nell'interfaccia grafica,
+	 * le funzioni back necessaria a tornare alla pagina precedente e quelle necessarie 
+	 * a spostarsi nei vari menu e viste. Inoltre, è presente una funzione che permette di
+	 * caricare in un arraylist tutti i contatti inseriti nel gruppo preferiti.
+	 *
+	 */
+	
 	static Utente utenteSelezionato;
 	ObservableList<Utente> ol;
 	ArrayList al;

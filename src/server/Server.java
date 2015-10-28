@@ -4,6 +4,16 @@ import java.net.*;
 import java.sql.*;
 import java.util.ArrayList;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
 import db.DbConnection;
 import gruppo.Gruppo;
 import com.mysql.jdbc.ResultSet;
@@ -18,6 +28,9 @@ import java.io.*;
    //Creazione di una classe per il Multrithreading
    class ServerThread extends Thread 
    {
+	   /**
+	    * Classe che permette la costruzione di un thread del server per mezzo di una socket.
+	    */
      Socket socket;
      ObjectInputStream dalClient;
      ObjectOutputStream versoClient;
@@ -27,9 +40,18 @@ import java.io.*;
          this.socket = socket;
      }
 
-     //esecuzione del Thread sul Socket
+
      public void run()
      {
+    	 /**
+    	  * Classe che permette l'esecuzione dei thread sopra creati.
+    	  * Contiene al suo interno una serie di if-else annidati che vanno a scandagliare
+    	  * tutti i tipi di richiesta che partono dalle varie interfacce.
+    	  * Ogni richiesta viene ricevuta dallo stream e, una volta definita la richiesta
+    	  * viene eseguita, con connessione al database quando necessario, e viene
+    	  * restituito allo stream una risposta che verrà analizzata dall'interfaccia
+    	  * che aveva inviato la richiesta.
+    	  */
     	 try
     	   {
     	    dalClient = new ObjectInputStream(socket.getInputStream());
@@ -439,6 +461,106 @@ import java.io.*;
 								System.out.println(rubricaesportata);
 							}
 						     catch (FileNotFoundException | UnsupportedEncodingException e) 
+							{
+								e.printStackTrace();
+						    }
+							versoClient.writeObject(ok);
+						}
+						else
+						{
+							versoClient.writeObject(ok);
+						}
+					}
+					else if(r.getTipoRichiesta().equals("xmlrubrica")){
+						ArrayList<String> rubricaxml = new ArrayList<>();
+						boolean ok=false;
+						int idRubrica=0;
+						ArrayList<Utente> al = new ArrayList<Utente>();
+						int id;
+						String nome, cognome, telefono, telefono2, email, email2, note;
+						String query2 = "SELECT id_addressbook FROM addressbook WHERE id_user="+r.getIdLoggato();
+						System.out.println(query2);
+						DbConnection.Connetti();
+						DbConnection.cmd.executeQuery(query2);
+						ResultSet rs2 = (ResultSet) DbConnection.cmd.getResultSet();
+						if(rs2.next())
+						{
+							idRubrica=rs2.getInt("id_addressbook");
+							
+							String query="SELECT people.id_people as idpeople,people.name_people,people.surname_people,people.telnumber1_people,people.telnumber2_people,people.email1_people,people.email2_people,people.note_people FROM people,contact WHERE people.id_people=contact.id_people AND contact.id_addressbook="+idRubrica;
+							System.out.println(query);
+							DbConnection.cmd.executeQuery(query);
+							ResultSet rs3 = (ResultSet) DbConnection.cmd.getResultSet();
+							PrintWriter writer;
+							
+							//DocumentBuilderFactory
+							DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+							
+							//DocumentBuilder
+							DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+							
+							//Document
+							Document xmlDoc = docBuilder.newDocument();
+							
+							//Build XML Elements and Text Nodes
+							Element root = xmlDoc.createElement("Rubrica");
+							xmlDoc.appendChild(root);
+							
+							while(rs3.next())
+							{
+								id=rs3.getInt("idpeople");
+								nome=rs3.getString("name_people");
+								cognome=rs3.getString("surname_people");
+								telefono=rs3.getString("telnumber1_people");
+								telefono2=rs3.getString("telnumber2_people");
+								email=rs3.getString("email1_people");
+								email2=rs3.getString("email2_people");
+								note=rs3.getString("note_people");
+								
+								//String contattotemp = "NOME: "+nome+" COGNOME: "+cognome+" TELEFONO: "+telefono+" TELEFONO2: "+telefono2+" EMAIL: "+email+" EMAIL2: "+email2+" NOTE: "+note+"\r";
+								if(id==1){}
+								else
+								{
+									ok=true;
+									
+									Element contatto = xmlDoc.createElement("Contatto");
+									contatto.setAttribute("id", Integer.toString(id));
+									Element name = xmlDoc.createElement("Nome");
+									name.appendChild(xmlDoc.createTextNode(nome));
+									contatto.appendChild(name);
+									Element surname = xmlDoc.createElement("Cognome");
+									surname.appendChild(xmlDoc.createTextNode(cognome));
+									contatto.appendChild(surname);
+									Element telnumber = xmlDoc.createElement("Telefono1");
+									telnumber.appendChild(xmlDoc.createTextNode(telefono));
+									contatto.appendChild(telnumber);
+									Element telnumber2 = xmlDoc.createElement("Telefono2");
+									telnumber2.appendChild(xmlDoc.createTextNode(telefono2));
+									contatto.appendChild(telnumber2);
+									Element mail = xmlDoc.createElement("Email1");
+									mail.appendChild(xmlDoc.createTextNode(email));
+									contatto.appendChild(mail);
+									Element mail2 = xmlDoc.createElement("Email2");
+									mail2.appendChild(xmlDoc.createTextNode(email2));
+									contatto.appendChild(mail2);
+									Element nota = xmlDoc.createElement("Note");
+									nota.appendChild(xmlDoc.createTextNode(note));
+									contatto.appendChild(nota);
+									
+									root.appendChild(contatto);
+									
+								 }
+								}
+							try 
+							{
+								TransformerFactory transformerfactory = TransformerFactory.newInstance();
+								Transformer transformer = transformerfactory.newTransformer();
+								DOMSource source = new DOMSource(xmlDoc);
+								
+								StreamResult streamResult = new StreamResult(new File("EsportazioniRubriche/rubricaXML"+r.getIdLoggato()+".xml"));
+								transformer.transform(source, streamResult);
+							}
+						     catch (Exception e) 
 							{
 								e.printStackTrace();
 						    }

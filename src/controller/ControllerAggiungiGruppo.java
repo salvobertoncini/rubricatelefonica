@@ -11,7 +11,15 @@ import javafx.scene.text.Text;
 import request.Richieste;
 import rubricaTelefonia.RubricaTelefonica;
 import user.Utente;
-
+/**
+ * 
+ * Classe che contiene le funzioni necessarie ad aggiungere un gruppo in rubrica.
+ * Sono presenti tutti i vari elementi che si trovano nell'interfaccia grafica,
+ * le funzioni back necessaria a tornare alla pagina precedente e
+ * addGroupOnDb che si occupa di mandare una richiesta al server contenente i campi 
+ * prelevati dall'interfaccia grafica. 
+ *
+ */
 public class ControllerAggiungiGruppo {
 	
 	@FXML
@@ -56,7 +64,6 @@ public class ControllerAggiungiGruppo {
 				error.setText("gruppo inserito con successo");
 			}
 		} catch (ClassNotFoundException | IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

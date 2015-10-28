@@ -26,7 +26,18 @@ import request.Richieste;
 import rubricaTelefonia.RubricaTelefonica;
 import user.Utente;
 
-public class ControllerVistaGruppi implements Initializable {
+public class ControllerVistaGruppi implements Initializable
+{
+	/**
+	 * 
+	 * Classe che contiene le funzioni necessarie alla visualizzazione dei gruppi in rubrica.
+	 * Sono presenti tutti i vari elementi che si trovano nell'interfaccia grafica,
+	 * le funzioni back necessaria a tornare alla pagina precedente e quelle necessarie 
+	 * a spostarsi nei vari menu e viste. Inoltre, è presente una funzione che permette di
+	 * caricare in un arraylist tutti i gruppi e, una volta selezionato un gruppo della lista
+	 * appaiono nella tabella tutti i numeri appartenenti a quel gruppo.
+	 *
+	 */
 	
 	static Utente utenteSelezionato;
 	ObservableList<String> ol;

@@ -16,8 +16,14 @@ import rubricaTelefonia.RubricaTelefonica;
 import user.Utente;
 
 public class ControllerLogin {
-	//Pulsante "LOGIN"
-	
+	/**
+	 * 
+	 * Classe che contiene le funzioni necessarie a gestire il login.
+	 * Sono presenti tutti i vari elementi che si trovano nell'interfaccia grafica,
+	 * registration che punta al form di registrazione e login che manda una richiesta 
+	 * al server contenente i campi prelevati dall'interfaccia grafica. 
+	 *
+	 */	
 	public static Utente userlog;
 	
 	@FXML

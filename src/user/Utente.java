@@ -8,7 +8,12 @@ import java.io.Serializable;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-public class Utente implements Serializable{
+public class Utente implements Serializable
+{
+	/**
+	 * Classe che serve alla costruzione di un utente, con tutti i suoi attributi, per mezzo
+	 * dei costruttori, e ai metodi getters e setters.
+	 */
 	private String nome, cognome, telefono,telefono2,email,email2,note, username, password;
 	private int id;
 	boolean login= false;

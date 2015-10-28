@@ -23,6 +23,19 @@ import user.Utente;
 
 public class ControllerMenu implements Initializable
 {
+	/**
+	 * 
+	 * Classe che contiene le funzioni necessarie alla gestione dell'interfaccia principale
+	 * del programma. Sono presenti tutti i vari elementi che si trovano nell'interfaccia 
+	 * grafica, una funzione initialize che fa visualizzare nome cognome e numero di telefono
+	 * dell'utente che si è loggato e che richiama una funzione init, la quale si preoccupa
+	 * di caricare una lista di contatti contenuti nella rubrica i quali vengono visualizzati
+	 * nell'apposito spazio, le funzioni back necessaria a tornare alla pagina precedente e
+	 * tutte le funzioni che puntano alle impostazioni, all'aggiungere contatti o gruppi, 
+	 * e alle viste dei preferiti e dei gruppi
+	 *
+	 */
+	
 	static Utente utenteSelezionato;
 	ObservableList<Utente> ol;
 	ArrayList al;

@@ -4,6 +4,12 @@ import java.sql.*;
 
 public class DbConnection 
 {
+	/**
+	 * Classe che si occupa della connessione col Database.
+	 * Contiene una funzione Connetti che, una volta stabiliti di dati della connessione,
+	 * permette grazie alla libreria esterna importata mysql-connector-java.bin.jar
+	 * di interfacciarsi col database, e una funzione Disconnetti.
+	 */
 	static public Statement cmd;
 	static public Connection connessione;
 	static String db_name="rubricatelefonica";

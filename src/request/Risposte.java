@@ -4,6 +4,12 @@ import java.io.Serializable;
 
 public class Risposte implements Serializable
 {
+	/**
+	 * Classe che contiene tutte le risposte che possono essere ricevute al server,
+	 * i costruttori, igetters e i setters.
+	 * 
+	 */
+	
 	boolean login=false;
 	private String nome, cognome, telefono;
 	

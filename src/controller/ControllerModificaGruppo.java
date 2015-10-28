@@ -11,6 +11,15 @@ import rubricaTelefonia.RubricaTelefonica;
 
 public class ControllerModificaGruppo 
 {
+	/**
+	 * 
+	 * Classe che contiene le funzioni necessarie ad modificare un gruppo in rubrica.
+	 * Sono presenti tutti i vari elementi che si trovano nell'interfaccia grafica,
+	 * le funzioni back necessaria a tornare alla pagina precedente e
+	 * modGroupOnDb che si occupa di mandare una richiesta al server contenente i campi 
+	 * prelevati dall'interfaccia grafica. 
+	 *
+	 */
 	@FXML
 	TextField name;
 	
